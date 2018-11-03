@@ -1,0 +1,180 @@
+package demobanking;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+public class demoIE {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		// Config to run on IE browser
+		System.setProperty("webdriver.ie.driver", "D:\\Auto\\IEDriverServer_x64_3.141.0\\IEDriverServer.exe");
+		InternetExplorerDriver driver = new InternetExplorerDriver();
+
+		// Open Banking page
+		driver.get("http://demo.guru99.com/v4/");
+		Thread.sleep(5000);
+
+		// Login with valid account
+		String userID = "mngr160970";
+		String password = "yzemAmy";
+
+		WebElement userLogin = driver.findElement(By.name("uid"));
+		userLogin.clear();
+		userLogin.sendKeys(userID);
+
+		WebElement passLogin = driver.findElement(By.name("password"));
+		passLogin.clear();
+		passLogin.sendKeys(password);
+
+		WebElement btnLogin = driver.findElement(By.name("btnLogin"));
+		btnLogin.click();
+
+		Thread.sleep(5000);
+
+		// Login test result
+		if (driver.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/marquee")).isDisplayed()) {
+			System.out.println("Login successfully!");
+		} else
+			System.out.println("Login fail!");
+
+		// Create new customer
+		String customerName = "Tuan Nguyen";
+		String customerDOB = "11/17/1987";
+		String customerAddr = "68 KVC";
+		String customerCity = "SG";
+		String customerState = "TD";
+		String customerPIN = "700000";
+		String customerPhone = "1234";
+		String customerEmail = "jonathan.nguyen070@yahoo.com";
+		String customerPass = "Aa123456";
+
+		driver.findElement(By.linkText("New Customer")).click();
+
+		WebElement nameCust = driver.findElement(By.name("name"));
+		nameCust.clear();
+		nameCust.sendKeys(customerName);
+
+		WebElement genderCust = driver.findElement(By.name("rad1"));
+		genderCust.click();
+
+		WebElement dobCust = driver.findElement(By.id("dob"));
+		dobCust.clear();
+		dobCust.sendKeys(customerDOB);
+
+		WebElement addrCust = driver.findElement(By.name("addr"));
+		addrCust.clear();
+		addrCust.sendKeys(customerAddr);
+
+		WebElement cityCust = driver.findElement(By.name("city"));
+		cityCust.clear();
+		cityCust.sendKeys(customerCity);
+
+		WebElement stateCust = driver.findElement(By.name("state"));
+		stateCust.clear();
+		stateCust.sendKeys(customerState);
+
+		WebElement pinCust = driver.findElement(By.name("pinno"));
+		pinCust.clear();
+		pinCust.sendKeys(customerPIN);
+
+		WebElement phoneCust = driver.findElement(By.name("telephoneno"));
+		phoneCust.clear();
+		phoneCust.sendKeys(customerPhone);
+
+		WebElement emailCust = driver.findElement(By.name("emailid"));
+		emailCust.clear();
+		emailCust.sendKeys(customerEmail);
+
+		WebElement passCust = driver
+				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[13]/td[2]/input"));
+		passCust.clear();
+		passCust.sendKeys(customerPass);
+
+		WebElement btnSubmitCust = driver
+				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[14]/td[2]/input[1]"));
+		btnSubmitCust.click();
+
+		Thread.sleep(5000);
+
+		// Create customer test result
+		if (driver.findElement(By.xpath("//*[@id=\"customer\"]/tbody/tr[1]/td/p")).isDisplayed()) {
+			System.out.println("New Customer created successfully!");
+		} else
+			System.out.println("Fail to create new customer!");
+
+		// get customer ID created
+		WebElement getCustID = driver.findElement(By.xpath("//*[@id=\"customer\"]/tbody/tr[4]/td[2]"));
+		String createdCustomerID = getCustID.getText();
+
+		// create new account
+		String accountDeposit = "77777";
+		driver.findElement(By.xpath("/html/body/div[3]/div/ul/li[5]/a")).click();
+
+		WebElement idCust = driver.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[2]/td[2]/input"));
+		idCust.clear();
+		idCust.sendKeys(createdCustomerID);
+
+		WebElement typeAcc = driver
+				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[3]/td[2]/select"));
+		typeAcc.click();
+
+		WebElement depositAcc = driver
+				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[4]/td[2]/input"));
+		depositAcc.clear();
+		depositAcc.sendKeys(accountDeposit);
+
+		WebElement btnSubmitAcc = driver
+				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[5]/td[2]/input[1]"));
+		btnSubmitAcc.click();
+
+		Thread.sleep(5000);
+
+		// Create account test result
+		if (driver.findElement(By.xpath("//*[@id=\"account\"]/tbody/tr[1]/td/p")).isDisplayed()) {
+			System.out.println("New account created successfully!");
+		} else
+			System.out.println("Fail to create new account!");
+
+		// get account ID created
+		WebElement getAccID = driver.findElement(By.xpath("//*[@id=\"account\"]/tbody/tr[4]/td[2]"));
+		String createdAccountID = getAccID.getText();
+
+		// verify Deposit function
+		String depositAmount = "12000";
+		String depositDescription = "Real Estate";
+
+		driver.findElement(By.xpath("/html/body/div[3]/div/ul/li[8]/a")).click();
+
+		WebElement accDeposit = driver
+				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[6]/td[2]/input"));
+		accDeposit.clear();
+		accDeposit.sendKeys(createdAccountID);
+
+		WebElement amountDeposit = driver
+				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[7]/td[2]/input"));
+		amountDeposit.clear();
+		amountDeposit.sendKeys(depositAmount);
+
+		WebElement descriptDeposit = driver
+				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[8]/td[2]/input"));
+		descriptDeposit.clear();
+		descriptDeposit.sendKeys(depositDescription);
+
+		WebElement btnDeposit = driver
+				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[12]/td[2]/input[1]"));
+		btnDeposit.click();
+
+		Thread.sleep(5000);
+
+		// Create deposit test result
+		if (driver.findElement(By.xpath("//*[@id=\"deposit\"]/tbody/tr[1]/td/p")).isDisplayed()) {
+			System.out.println("New deposit created successfully!");
+		} else
+			System.out.println("Fail to create new deposit!");
+
+		// Quit
+		driver.quit();
+	}
+}
