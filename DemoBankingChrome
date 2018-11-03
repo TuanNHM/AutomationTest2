@@ -1,16 +1,18 @@
 package demobanking;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-public class demoIE {
+public class demoChrome {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-		// Config to run on IE browser
-		System.setProperty("webdriver.ie.driver", "D:\\Auto\\IEDriverServer_x64_3.141.0\\IEDriverServer.exe");
-		InternetExplorerDriver driver = new InternetExplorerDriver();
+		//Config to run on Chrome browser
+		System.setProperty("webdriver.chrome.driver", "D:\\Auto\\chromedriver_win32\\chromedriver.exe");
+
+		WebDriver driver = new ChromeDriver();
 
 		// Open Banking page
 		driver.get("http://demo.guru99.com/v4/");
@@ -46,8 +48,8 @@ public class demoIE {
 		String customerCity = "SG";
 		String customerState = "TD";
 		String customerPIN = "700000";
-		String customerPhone = "1234";
-		String customerEmail = "jonathan.nguyen070@yahoo.com";
+		String customerPhone = "0972115118";
+		String customerEmail = "jonathan.nguyen17@yahoo.com";
 		String customerPass = "Aa123456";
 
 		driver.findElement(By.linkText("New Customer")).click();
@@ -177,4 +179,5 @@ public class demoIE {
 		// Quit
 		driver.quit();
 	}
+
 }
