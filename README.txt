@@ -13,6 +13,19 @@ Write a suite of three automated browser tests for demo banking app at: http://d
     - Create new deposit based on created account above successfully
   
 2. Test pre-requisites:
+    - Download driver for each browser to set property
+    - Set property before scription for each browser:
+      a. Chrome:
+        System.setProperty("webdriver.chrome.driver", "Path to Chrome driver folder" + "\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+      b. IE:
+        System.setProperty("webdriver.ie.driver", "Path to IE driver folder" + "\\IEDriverServer.exe");
+		    InternetExplorerDriver driver = new InternetExplorerDriver();
+      c. Firefox:
+        System.setProperty("webdriver.gecko.driver", "Path to Gecko driver folder" + "\\geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
 
-2. Issues:
+3. Issues:
     - Configure to run on IE browser fail due to unmatched version between WebDriver & IEDriverServer
+    - Have no idea how to implement the page object pattern: http://www.seleniumhq.org/docs/06_test_design_considerations.jsp#page-object-designpattern 
+    - 
