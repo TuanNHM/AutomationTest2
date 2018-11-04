@@ -27,6 +27,5 @@ Write a suite of three automated browser tests for demo banking app at: http://d
         WebDriver driver = new FirefoxDriver();
 
 3. Issues:
-    - Configure to run on IE browser fail due to unmatched version between WebDriver & IEDriverServer
+    - Configure to run on IE browser fail due to unmatched version between WebDriver & IEDriverServer. But after detected, I fix and configure successfully so that the script runs successfully.
     - Have no idea how to implement the page object pattern: http://www.seleniumhq.org/docs/06_test_design_considerations.jsp#page-object-designpattern 
-    - On Firefox browser, unable to send the value to DOB field on Create New Customer page, it's auto bypass DOB field and run next script to fill all remaining fields. Then Submit button is clicked and get stuck because DOB field is blank. I have tried to get element by different ways as id, name & xpath but the results are the same. This issue does not occur when running with same code on Chrome & IE browser!!!
