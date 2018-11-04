@@ -17,16 +17,16 @@ public class demoIE {
 		Thread.sleep(5000);
 
 		// Login with valid account
-		String userID = "mngr160970";
-		String password = "yzemAmy";
+		String idLogin = "mngr160970";
+		String pwdLogin = "yzemAmy";
 
 		WebElement userLogin = driver.findElement(By.name("uid"));
 		userLogin.clear();
-		userLogin.sendKeys(userID);
+		userLogin.sendKeys(idLogin);
 
 		WebElement passLogin = driver.findElement(By.name("password"));
 		passLogin.clear();
-		passLogin.sendKeys(password);
+		passLogin.sendKeys(pwdLogin);
 
 		WebElement btnLogin = driver.findElement(By.name("btnLogin"));
 		btnLogin.click();
@@ -47,7 +47,7 @@ public class demoIE {
 		String customerState = "TD";
 		String customerPIN = "700000";
 		String customerPhone = "1234";
-		String customerEmail = "jonathan.nguyen070@yahoo.com";
+		String customerEmail = "jonathan.nguyen123@yahoo.com";
 		String customerPass = "Aa123456";
 
 		driver.findElement(By.linkText("New Customer")).click();
@@ -88,12 +88,12 @@ public class demoIE {
 		emailCust.sendKeys(customerEmail);
 
 		WebElement passCust = driver
-				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[13]/td[2]/input"));
+				.findElement(By.name("password"));
 		passCust.clear();
 		passCust.sendKeys(customerPass);
 
 		WebElement btnSubmitCust = driver
-				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[14]/td[2]/input[1]"));
+				.findElement(By.name("sub"));
 		btnSubmitCust.click();
 
 		Thread.sleep(5000);
@@ -112,21 +112,21 @@ public class demoIE {
 		String accountDeposit = "77777";
 		driver.findElement(By.xpath("/html/body/div[3]/div/ul/li[5]/a")).click();
 
-		WebElement idCust = driver.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[2]/td[2]/input"));
+		WebElement idCust = driver.findElement(By.name("cusid"));
 		idCust.clear();
 		idCust.sendKeys(createdCustomerID);
 
 		WebElement typeAcc = driver
-				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[3]/td[2]/select"));
+				.findElement(By.name("selaccount"));
 		typeAcc.click();
 
 		WebElement depositAcc = driver
-				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[4]/td[2]/input"));
+				.findElement(By.name("inideposit"));
 		depositAcc.clear();
 		depositAcc.sendKeys(accountDeposit);
 
 		WebElement btnSubmitAcc = driver
-				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[5]/td[2]/input[1]"));
+				.findElement(By.name("button2"));
 		btnSubmitAcc.click();
 
 		Thread.sleep(5000);
@@ -148,22 +148,22 @@ public class demoIE {
 		driver.findElement(By.xpath("/html/body/div[3]/div/ul/li[8]/a")).click();
 
 		WebElement accDeposit = driver
-				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[6]/td[2]/input"));
+				.findElement(By.name("accountno"));
 		accDeposit.clear();
 		accDeposit.sendKeys(createdAccountID);
 
 		WebElement amountDeposit = driver
-				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[7]/td[2]/input"));
+				.findElement(By.name("ammount"));
 		amountDeposit.clear();
 		amountDeposit.sendKeys(depositAmount);
 
 		WebElement descriptDeposit = driver
-				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[8]/td[2]/input"));
+				.findElement(By.name("desc"));
 		descriptDeposit.clear();
 		descriptDeposit.sendKeys(depositDescription);
 
 		WebElement btnDeposit = driver
-				.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[12]/td[2]/input[1]"));
+				.findElement(By.name("AccSubmit"));
 		btnDeposit.click();
 
 		Thread.sleep(5000);
