@@ -15,7 +15,7 @@ Write a suite of three automated browser tests for demo banking app at: http://d
   
 2. Test pre-requisites:
     - Download driver for each browser to set property
-    - Set property before scription for each browser:
+    - Set property before scripting for each browser:
       a. Chrome:
         System.setProperty("webdriver.chrome.driver", "Path to Chrome driver folder" + "\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
